@@ -7,6 +7,9 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import hello.study.domain.item.Item;
+import hello.study.domain.item.ItemRepository;
+
 class ItemRepositoryTest {
 	
 	ItemRepository itemRepository = new ItemRepository();

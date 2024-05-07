@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<ul>
+		<li>상품 관리
+			<ul>
+				<li><a href="/basic/items">상품 관리 - 기본</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+	<form method="post" th:object="${localeDto}">
+        <div>언어 선택</div>
+        <select th:field="*{locale}">
+            <option value="">== 언어 선택 ==</option>
+            <option th:each="language : ${languages}" th:value="${language.locale}" th:text="${language.lang}"></option>
+
+        </select>
+        <button type="submit">버튼</button>
+    </form>
+</body>
+</html>

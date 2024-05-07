@@ -1,7 +1,12 @@
-package hello.study.domain;
+package hello.study.web.item.dto;
 
 import java.util.List;
 
+import org.hibernate.validator.constraints.Range;
+
+import hello.study.domain.item.ItemType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,26 +14,22 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Item {
+public class ItemUpdateForm {
 
-
+	@NotNull
 	private Long Id;
+
+	@NotBlank
 	private String itemName;
+
+	@NotNull
+	@Range(min = 1000, max = 1000000)
 	private Integer price;
+	@NotNull
 	private Integer quantity;
 	private Boolean open;
 	private List<String> regions;
 	private ItemType itemType;
 	private String deliveryCode;
-	
-	public Item(String itemName, Integer price, Integer quantity) {
-		this.itemName = itemName;
-		this.price = price;
-		this.quantity = quantity;
-	}
-
-	public Item() {
-		// TODO Auto-generated constructor stub
-	}
 
 }

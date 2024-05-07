@@ -1,4 +1,4 @@
-package hello.study.domain;
+package hello.study.domain.item;
 
 import java.util.ArrayList;
 import java.util.HashMap;
