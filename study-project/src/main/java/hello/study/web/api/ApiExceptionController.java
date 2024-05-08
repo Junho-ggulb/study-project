@@ -1,9 +1,13 @@
 package hello.study.web.api;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import hello.study.web.exception.BadRequestException;
 import hello.study.web.exception.UserException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,11 +26,26 @@ public class ApiExceptionController {
 			throw new IllegalArgumentException("잘못된 입력 값");
 		}
 		if(id.equals("user-ex")) {
-			log.info("진입");
 			throw new UserException("사용자 오류");
 		}
 		
 		return new MemberDto(id, "hello "+  id);
+	}
+	
+	@GetMapping("/api/response-status-ex1")
+	public String responseStatusEx1() {
+	 throw new BadRequestException();
+	}
+	
+	@GetMapping("/api/response-status-ex2")
+	public String responseStatusEx2() {
+	 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "error.bad", new
+			 IllegalArgumentException());
+	}
+	
+	@GetMapping("/api/default-handler-ex")
+	public String defaultException(@RequestParam("data") Integer data) {
+	 return "ok";
 	}
 	
 	

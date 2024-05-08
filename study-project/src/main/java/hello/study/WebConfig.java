@@ -3,7 +3,6 @@ package hello.study;
 import java.util.List;
 import java.util.Locale;
 
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -14,14 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import hello.study.web.argumentresolver.LoginMemberArgumentResolver;
-import hello.study.web.filter.LogFilter;
-import hello.study.web.filter.LoginCheckFilter;
 import hello.study.web.interceptor.LogInterceptor;
-import hello.study.web.interceptor.LoginCheckInterceptor;
 import hello.study.web.resolver.MyHandlerExceptionResolver;
 import hello.study.web.resolver.UserHandlerExceptionResolver;
-import jakarta.servlet.DispatcherType;
-import jakarta.servlet.Filter;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer{
